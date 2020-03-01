@@ -1,7 +1,10 @@
 import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 import Input from '~/components/Input';
 
@@ -19,6 +22,9 @@ const schema = Yup.object().shape({
 
 export default function SignUp() {
   const formRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.auth.loading);
 
   async function handleSubmit(data) {
     formRef.current.setErrors({});
@@ -26,6 +32,10 @@ export default function SignUp() {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      const { name, email, password } = data;
+
+      dispatch(signUpRequest(name, email, password));
 
       // formRef.current.reset();
     } catch (error) {
@@ -51,7 +61,9 @@ export default function SignUp() {
         <Input name="name" placeholder="Nome completo" />
         <Input name="email" type="email" placeholder="Seu E-mail" />
         <Input name="password" type="password" placeholder="Senha" />
-        <button type="submit">Criar conta</button>
+        <button type="submit">
+          {loading ? 'Criando conta...' : 'Criar conta'}
+        </button>
         <Link to="/">Já tenho login</Link>
       </Form>
     </>
