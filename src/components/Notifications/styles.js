@@ -27,11 +27,6 @@ export const Badge = styled.button`
     `}
 `;
 
-export const Scroll = styled(PerfectScrollbar)`
-  max-height: 260px;
-  padding: 5px 15px;
-`;
-
 export const NotificationList = styled.div`
   position: absolute;
   width: 260px;
@@ -40,6 +35,7 @@ export const NotificationList = styled.div`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   padding: 15px 5px;
+  display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {
     content: '';
@@ -53,6 +49,11 @@ export const NotificationList = styled.div`
     border-right: 20px solid transparent;
     border-bottom: 20px solid rgba(0, 0, 0, 0.6);
   }
+`;
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 260px;
+  padding: 5px 15px;
 `;
 
 export const Notification = styled.div`
@@ -70,6 +71,7 @@ export const Notification = styled.div`
   }
 
   time {
+    display: block;
     font-size: 12px;
     opacity: 0.6;
   }
@@ -79,9 +81,10 @@ export const Notification = styled.div`
     border: none;
     background: none;
     color: ${lighten(0.2, '#7159c1')};
-    padding: 0 5px;
-    margin: 0 5px;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 6px;
+    /* padding: 0 5px; */
+    /* margin: 0 5px; */
+    /* border-left: 1px solid rgba(255, 255, 255, 0.1); */
   }
 
   ${props =>

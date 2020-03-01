@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@unform/core';
 
-import { Error } from './styles';
+import { Input, Error } from './styles';
 
-export default function Input({ name, ...rest }) {
+export default function InputWrapper({ name, ...rest }) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
@@ -18,12 +18,12 @@ export default function Input({ name, ...rest }) {
 
   return (
     <>
-      <input ref={inputRef} defaultValue={defaultValue} {...rest} />
+      <Input ref={inputRef} defaultValue={defaultValue} {...rest} />
       {error && <Error>{error}</Error>}
     </>
   );
 }
 
-Input.propTypes = {
+InputWrapper.propTypes = {
   name: PropTypes.string.isRequired,
 };
