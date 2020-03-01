@@ -62,5 +62,6 @@ export const Profile = styled.div`
     height: 32px;
     width: 32px;
     border-radius: 50%;
+    object-fit: scale-down;
   }
 `;
