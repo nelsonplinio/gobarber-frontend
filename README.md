@@ -4,7 +4,7 @@
 </h1>
 
 <h3 align="center">
-  💈🪒 GoBarber 🧔
+  💈🪒 GoBarber 🧔💜
 </h3>
 
 <p align="center">
@@ -14,7 +14,7 @@
   <a href="#Instalar e usar">Instalar e usar</a>
 </p>
 
-##💈 Sobre
+## 💈 Sobre
 
  O gobarber é um sistema para agendamentos de serviços de beleza, e o web site é para os provedores de serviço.  Web desenvolvido de reactJS.
 
@@ -44,16 +44,16 @@
 <strong>Agendamentos</strong>
 <img src='img/dashboard.png'>
 <br />
-<strong>Detalhes da encomenda.</strong>
+<strong>Perfil do provedor.</strong>
 <img src='img/profile.png'>
 
 ## 🚀 Instalar e usar
 
 ###### Clone o respostiorio.
-``git clone git@github.com:nelsonplinio/fast-feet-front-end.git``
+``git clone git@github.com:nelsonplinio/gobarber-frontend.git``
 
 ###### Instalar as dependencias.
-``cd fast-feet-front-end ``
+``cd gobarber-frontend ``
 `` yarn ou npm install``
 
 ###### Instalar as dependencias.
