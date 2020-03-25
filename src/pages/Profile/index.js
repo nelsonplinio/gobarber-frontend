@@ -14,9 +14,14 @@ export default function Profile() {
   const formRef = useRef(null);
 
   const dispatch = useDispatch();
-  const profile = useSelector(state => state.user.profile);
+  const profile = useSelector(state => ({
+    ...state.user.profile,
+    oldPassword: '',
+    password: '',
+    confirmPassword: '',
+  }));
 
-  async function handleSubmit(data) {
+  function handleSubmit(data) {
     dispatch(
       updateProfileRequest({
         ...data,
